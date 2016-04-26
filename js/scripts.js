@@ -3,7 +3,8 @@ Pagination Content Filter:
 */
 // Global variables
 var studentsPerPage = 10;
-var numofLinks = studentsPerPage / 10; 
+var totalStudents;
+var numofLinks = studentsPerPage / 10;
 
 // appends search to page
 $(".page-header").append('<div class="student-search"><input placeholder="Search for students..."><button>Search</button></div>');
