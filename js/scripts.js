@@ -3,7 +3,7 @@ Pagination Content Filter:
 */
 // Global variables
 var studentsPerPage = 10;
-var $totalStudents = $(".student-item").length;
+var $totalStudents = $(".student-list").find(".student-item");
 var numofLinks = studentsPerPage / 10;
 
 // appends search to page
@@ -25,13 +25,4 @@ $(".page").append('<div class="pagination"><ul></ul></div>');
 
 if ($totalStudents / 10 > 0) {
   $(".pagination ul").append('<li><a href="#">2</a></li>');
-}
-
-
-
-
-
-
-for (; numberLinks > 10; numberLinks += 1) {
-  $(".pagination ul").append('<li><a href="#">2</a></li>')
 }
