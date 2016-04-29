@@ -46,4 +46,4 @@ $("ul li a").click(function() {
 
 // adding active class to first link when the page loads
 
-$("ul li a:first-child").addClass("active");
+$("ul li a:first").addClass("active");
