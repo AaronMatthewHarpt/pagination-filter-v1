@@ -17,12 +17,11 @@ console.log(numofLinks);
 // appends search to page
 $(".page-header").append('<div class="student-search"><input placeholder="Search for students..."> <button>Search</button></div>');
 
+// appending the pagination div and child ul
+$(".page").append('<div class="pagination"><ul></ul></div>');
 
 // hiding all students when the page first loads
 $(".student-item").hide();
-
-// appending the pagination div and child ul
-$(".page").append('<div class="pagination"><ul></ul></div>');
 
 // showing the first 10 students
 var $studentsPerPage = $(".student-item:lt(10)").show();
@@ -36,17 +35,16 @@ for (var i = 1; i <= numofLinks; i++) {
   $(".pagination ul").append('<li> <a href="#">' + [i] + '</a> </li>');
 }
 
+// adding active class to first link when the page loads
+
+$("ul li a:first").addClass("active");
+
 // adds/removes the active class when a link is clicked on
 
 $("ul li a").click(function() {
   $("ul li a").removeClass("active");
   $(this).addClass("active");
 });
-
-
-// adding active class to first link when the page loads
-
-$("ul li a:first").addClass("active");
 
 
 // Code that shows correct student for correct page
