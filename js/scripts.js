@@ -36,3 +36,7 @@ var $studentsPerPage = $(".student-item:lt(10)").show();
 for (var i = 1; i < numofLinks; i++) {
   $(".pagination ul").append('<li><a href="#">' + [i] + '</a></li>');
 }
+
+// adding active class to first link when the page loads
+
+$("ul li a:first-child").addClass("active");
