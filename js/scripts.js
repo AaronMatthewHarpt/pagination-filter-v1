@@ -33,7 +33,7 @@ var $studentsPerPage = $(".student-item:lt(10)").show();
 // appending correct number of links
 
 for (var i = 1; i < numofLinks; i++) {
-  $(".pagination ul").append('<li><a href="#">' + [i] + '</a></li>');
+  $(".pagination ul").append('<li> <a href="#">' + [i] + '</a> </li>');
 }
 
 // adds/removes the active class when a link is clicked on
