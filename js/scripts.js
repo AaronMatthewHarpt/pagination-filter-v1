@@ -1,6 +1,7 @@
 /*
 Pagination Content Filter:
 */
+
 // Global variables
 var studentsPerPage = 10;
 var totalStudents = $(".student-list").find(".student-item");
