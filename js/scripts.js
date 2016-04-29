@@ -4,7 +4,7 @@ Pagination Content Filter:
 // Global variables
 var studentsPerPage = 10;
 var totalStudents = $(".student-list").find(".student-item");
-var numofLinks = studentsPerPage / 10;
+var numofLinks = parseInt(totalStudents) / studentsPerPage;
 
 
 console.log(totalStudents);
@@ -28,6 +28,11 @@ var $studentsPerPage = $(".student-item:lt(10)").show();
 
 // adding pagination links
 
-if (totalStudents / 10 > 0) {
-  $(".pagination ul").append('<li><a href="#">2</a></li>');
+// if (totalStudents / 10 > 0) {
+//   $(".pagination ul").append('<li><a href="#">2</a></li>');
+// }
+
+
+for (var i = 0; i < numofLinks; i++) {
+  $("div.pagination ul").append('<li><a href="#">' + [i] + '</a></li>');
 }
