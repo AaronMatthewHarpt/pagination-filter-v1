@@ -7,6 +7,8 @@ var studentsPerPage = 10;
 var totalStudents = $(".student-list").find(".student-item");
 var numofLinks = Math.ceil(totalStudents.length / studentsPerPage);
 
+
+// console.logs for testing
 console.log(numofLinks);
 
 // console.log(totalStudents);
@@ -15,8 +17,6 @@ console.log(numofLinks);
 // appends search to page
 $(".page-header").append('<div class="student-search"><input placeholder="Search for students..."> <button>Search</button></div>');
 
-
-// Pagination:
 
 // hiding all students when the page first loads
 $(".student-item").hide();
@@ -28,7 +28,7 @@ $(".page").append('<div class="pagination"><ul></ul></div>');
 var $studentsPerPage = $(".student-item:lt(10)").show();
 
 
-// adding pagination links
+// Adding pagination links:
 
 // appending correct number of links
 
