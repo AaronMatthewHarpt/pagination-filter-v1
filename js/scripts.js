@@ -33,7 +33,6 @@ var $studentsPerPage = $(".student-item:lt(10)").show();
 //   $(".pagination ul").append('<li><a href="#">2</a></li>');
 // }
 
-
 for (var i = 1; i < numofLinks; i++) {
   $("div.pagination ul").append('<li><a href="#">' + [i] + '</a></li>');
 }
