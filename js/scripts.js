@@ -38,6 +38,11 @@ for (var i = 1; i < numofLinks; i++) {
   $(".pagination ul").append('<li><a href="#">' + [i] + '</a></li>');
 }
 
+$("ul li a").click(function() {
+
+});
+
+
 // adding active class to first link when the page loads
 
 $("ul li a:first-child").addClass("active");
