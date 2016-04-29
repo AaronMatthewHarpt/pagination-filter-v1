@@ -47,3 +47,12 @@ $("ul li a").click(function() {
 // adding active class to first link when the page loads
 
 $("ul li a:first").addClass("active");
+
+
+// Code that shows correct student for correct page
+
+var $studentsPerPage2;
+
+$("<a href='2'>").click( function(){
+  console.log($studentsPerPage2 = $(".student-item:gt(11):lt(20)").show());
+});
