@@ -9,7 +9,7 @@ var numofLinks = Math.ceil(totalStudents.length / studentsPerPage);
 
 console.log(numofLinks);
 
-console.log(totalStudents);
+// console.log(totalStudents);
 
 
 // appends search to page
@@ -53,6 +53,6 @@ $("ul li a:first").addClass("active");
 
 var $studentsPerPage2;
 
-$("<a href='2'>").click( function(){
-  console.log($studentsPerPage2 = $(".student-item:gt(11):lt(20)").show());
+$("<a>").click( function(){
+  console.log($(".student-item:gt(11):lt(20)").show());
 });
