@@ -30,9 +30,6 @@ var $studentsPerPage = $(".student-item:lt(10)").show();
 
 // adding pagination links
 
-// if (totalStudents / 10 > 0) {
-//   $(".pagination ul").append('<li><a href="#">2</a></li>');
-// }
 
 for (var i = 1; i < numofLinks; i++) {
   $(".pagination ul").append('<li><a href="#">' + [i] + '</a></li>');
