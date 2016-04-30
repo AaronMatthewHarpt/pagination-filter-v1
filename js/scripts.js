@@ -6,6 +6,7 @@ Pagination Content Filter:
 var studentsPerPage = 10;
 var $totalStudents = $(".student-list").find(".student-item");
 var numofLinks = Math.ceil($totalStudents.length / studentsPerPage);
+var currentLink = 0;
 
 
 // console.logs for testing
@@ -53,6 +54,9 @@ $("ul li a").click(function() {
 //   $totalStudents.hide();
 //   document.write($(".student-item:gt("+ [i] + "):lt(10)").show());
 // });
+
+
+currentLink += 1;
 
 
 $("ul li:nth-child(1) a").click( function(){
