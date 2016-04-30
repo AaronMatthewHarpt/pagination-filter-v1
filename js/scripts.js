@@ -22,7 +22,6 @@ $(".page").append('<div class="pagination"><ul></ul></div>');
 
 // hiding all students when the page first loads
 $(".student-item").hide();
-
 // showing the first 10 students
 var $studentsPerPage = $(".student-item:lt(10)").show();
 
@@ -48,6 +47,13 @@ $("ul li a").click(function() {
 
 
 // Code that shows correct student for correct page
+
+
+// $("ul li a").click( function(){
+//   $totalStudents.hide();
+//   document.write($(".student-item:gt("+ [i] + "):lt(10)").show());
+// });
+
 
 $("ul li:nth-child(1) a").click( function(){
   $totalStudents.hide();
