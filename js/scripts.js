@@ -43,7 +43,6 @@ $("ul li a:first").addClass("active");
 // adds/removes the active class when a link is clicked on
 
 $("ul li a").click(function() {
-  $("body").fadeOut();
   $("ul li a").removeClass("active");
   $(this).addClass("active");
 });
