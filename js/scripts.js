@@ -119,6 +119,6 @@ function newpage() {
 
 
 // Search:
-    $("button").click(function() {
-      $(this).EventListener();
+    $("button").on("click", function() {
+      console.log("A button was clicked");
     });
