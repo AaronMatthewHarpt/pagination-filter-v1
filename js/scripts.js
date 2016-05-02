@@ -119,10 +119,6 @@ function newpage() {
 
 
 // Search:
-  // 1. Add event listener to the search button
-    // 1.1 When user clicks on the button it should use the text in
-    // the search input to filter the results
-  // 2. Users should be able to search by name or e-mail address.
-  // And partial matches, like just a first name, should be displayed in the results.
-  // 3. Search results should also be paginated.
-  // For example, if the search returns more than 10 results, those results should be paginated too.
+    $("button").click(function() {
+      $(this).eventListener();
+    });
