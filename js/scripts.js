@@ -57,12 +57,11 @@ $("ul li a").click(function() {
 //   document.write($(".student-item:gt("+ [i] + "):lt(10)").show());
 // });
 
+currentLink += 1;
+
 
 // adding animations
 
-
-
-currentLink += 1;
 
 var $studentsPerPage = $(".student-item:lt(10)").show();
 
