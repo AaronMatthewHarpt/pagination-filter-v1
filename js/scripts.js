@@ -45,6 +45,7 @@ $("ul li a:first").addClass("active");
 $("ul li a").click(function() {
   $("ul li a").removeClass("active");
   $(this).addClass("active");
+  // $(".student-list");
 });
 
 
@@ -57,14 +58,26 @@ $("ul li a").click(function() {
 // });
 
 
+// adding animations
+
+
+
 currentLink += 1;
 
 var $studentsPerPage = $(".student-item:lt(10)").show();
 
 $("ul li a:not(:first)").click( function(){
+  $("body").css("display", "none").fadeIn(1000);
   $totalStudents.hide();
-  var $studentsPerPage = $(".student-item").nextAll(":lt(10)").show();
+  event.preventDefault();
+  newLocation = "filter-example.html";
+  $("body").fadeOut(1000, newpage);
+  $(".student-item").nextAll(":lt(10)").show();
 });
+
+function newpage() {
+  window.location = newLocation;
+}
 
 
 
