@@ -119,5 +119,9 @@ function newpage() {
 
 // Search:
     $("button").on("click", function() {
-      console.log("A button was clicked");
+      if ($(this).text() === $(".student-item:contains('iboya')")) {
+        console.log("console log");
+      } else {
+        console.log("console log for else");
+      }
     });
