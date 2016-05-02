@@ -135,10 +135,10 @@ $("ul li:nth-child(" + listCorrectStudents + ") a").click( function(){
 
 
 // Search:
-    $("button").on("click", function() {
-      if ($(this).text() === $(".student-item:contains('iboya')")) {
-        console.log("console log");
-      } else {
-        console.log("console log for else");
-      }
-    });
+$("button").on("click", function() {
+  if ($(this).text() === $(".student-item:contains('iboya')")) {
+    console.log("console log");
+  } else {
+    console.log("console log for else");
+  }
+});
