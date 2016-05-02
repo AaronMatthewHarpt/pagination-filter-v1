@@ -4,6 +4,7 @@ Pagination Content Filter:
 
 // Global variables
 var studentsPerPage = 10;
+// var $totalStudents = $(".student-list").find(".student-item").size();
 var $totalStudents = $(".student-list").find(".student-item");
 var numofLinks = Math.ceil($totalStudents.length / studentsPerPage);
 var currentLink = 0;
@@ -58,38 +59,46 @@ $("ul li a").click(function() {
 
 currentLink += 1;
 
+var $studentsPerPage = $(".student-item:lt(10)").show();
 
-$("ul li:nth-child(1) a").click( function(){
+$("ul li a:not(:first)").click( function(){
   $totalStudents.hide();
-  var $studentsPerPage = $(".student-item:lt(10)").show();
+  var $studentsPerPage = $(".student-item").next(":lt(10)").show();
 });
 
-$("ul li:nth-child(2) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(11):lt(10)").show();
-});
 
-$("ul li:nth-child(3) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(21):lt(10)").show();
-});
 
-$("ul li:nth-child(4) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(31):lt(10)").show();
-});
+// $("ul li:nth-child(1) a").click( function(){
+//   $totalStudents.hide();
+//   var $studentsPerPage = $(".student-item:lt(10)").show();
+// });
 
-$("ul li:nth-child(5) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(41):lt(10)").show();
-});
-
-$("ul li:nth-child(6) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(51):lt(10)").show();
-});
+// $("ul li:nth-child(2) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(11):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(3) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(21):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(4) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(31):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(5) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(41):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(6) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(51):lt(10)").show();
+// });
