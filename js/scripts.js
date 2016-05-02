@@ -65,24 +65,41 @@ currentLink += 1;
 
 var $studentsPerPage = $(".student-item:lt(10)").show();
 
-$("ul li a:not(:first)").click(function() {
-  $("body").css("display", "none").fadeIn(1000);
+// $("ul li a:not(:first)").click(function() {
+//   $("body").css("display", "none").fadeIn(1000);
+//   $totalStudents.hide();
+//   event.preventDefault();
+//   newLocation = "filter-example.html";
+//   $("body").fadeOut(1000, newpage);
+//   $(".student-item").nextAll(":lt(10)").show();
+// });
+//
+// function newpage() {
+//   window.location = newLocation;
+// }
+
+
+
+var listCorrectStudents = parseInt([i]) + 1;
+
+for (var i = 1; i < 10; i++) {
+$("ul li:nth-child(" + listCorrectStudents + ") a").click( function(){
   $totalStudents.hide();
-  event.preventDefault();
-  newLocation = "filter-example.html";
-  $("body").fadeOut(1000, newpage);
-  $(".student-item").nextAll(":lt(10)").show();
-});
-
-function newpage() {
-  window.location = newLocation;
+  var $studentsPerPage = $(".student-item:gt(" + parseInt([i]) * 10 + "):lt(10)").show();
+  console.log(parseInt([i]) + 1);
+  });
 }
-
+// console.log(parseInt([i]) + 1);
+// for (var j = 0; j < 4; j++) {
+//   console.log(parseInt([j]) + 1);
+// }
+// console.log(parseInt([j]) + 1);
 
 
 // $("ul li:nth-child(1) a").click( function(){
 //   $totalStudents.hide();
-//   var $studentsPerPage = $(".student-item:lt(10)").show();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(11):lt(10)").show();
 // });
 
 // $("ul li:nth-child(2) a").click( function(){
