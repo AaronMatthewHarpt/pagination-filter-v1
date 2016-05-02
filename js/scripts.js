@@ -115,3 +115,7 @@ function newpage() {
 //   // $(".student-item:gt(11):lt(20)").show();
 //   $(".student-item:gt(51):lt(10)").show();
 // });
+
+
+
+// Search:
