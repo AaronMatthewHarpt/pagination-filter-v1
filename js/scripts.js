@@ -101,7 +101,7 @@ $("ul li:nth-child(" + listCorrectStudents + ") a").click( function(){
 //   // $(".student-item:gt(11):lt(20)").show();
 //   $(".student-item:gt(11):lt(10)").show();
 // });
-
+//
 // $("ul li:nth-child(2) a").click( function(){
 //   $totalStudents.hide();
 //   // $(".student-item:gt(11):lt(20)").show();
