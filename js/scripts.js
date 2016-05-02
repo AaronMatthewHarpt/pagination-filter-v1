@@ -43,6 +43,7 @@ $("ul li a:first").addClass("active");
 // adds/removes the active class when a link is clicked on
 
 $("ul li a").click(function() {
+  $("body").fadeOut();
   $("ul li a").removeClass("active");
   $(this).addClass("active");
 });
@@ -63,7 +64,7 @@ var $studentsPerPage = $(".student-item:lt(10)").show();
 
 $("ul li a:not(:first)").click( function(){
   $totalStudents.hide();
-  var $studentsPerPage = $(".student-item").next(":lt(10)").show();
+  var $studentsPerPage = $(".student-item").nextAll(":lt(10)").show();
 });
 
 
