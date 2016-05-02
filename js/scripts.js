@@ -17,7 +17,7 @@ console.log(numofLinks);
 
 
 // appends search to page
-$(".page-header").append('<div class="student-search"><input placeholder="Search for students..."> <button>Search</button></div>');
+$(".page-header").append('<div class="student-search"><input value="input" placeholder="Search for students..."> <button>Search</button></div>');
 
 // appending the pagination div and child ul
 $(".page").append('<div class="pagination"><ul></ul></div>');
@@ -135,10 +135,14 @@ $("ul li:nth-child(" + listCorrectStudents + ") a").click( function(){
 
 
 // Search:
-$("button").on("click", function() {
-  if ($(this).text() === $(".student-item:contains('iboya')")) {
-    console.log("console log");
-  } else {
-    console.log("console log for else");
-  }
+
+var $inputText = $("input").text();
+console.log($inputText)
+
+console.log($("input").val());
+
+$("button").click( function() {
+  $totalStudents.hide();
+  var $filteredStudents = $(".student-item").filter(":contains(" + $inputText + ")").show(":gt(11):lt(10)");
+  console.log($filteredStudents.length);
 });
