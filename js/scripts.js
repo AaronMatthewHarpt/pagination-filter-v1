@@ -65,7 +65,7 @@ currentLink += 1;
 
 var $studentsPerPage = $(".student-item:lt(10)").show();
 
-$("ul li a:not(:first)").click( function(){
+$("ul li a:not(:first)").click(function() {
   $("body").css("display", "none").fadeIn(1000);
   $totalStudents.hide();
   event.preventDefault();
