@@ -4,7 +4,6 @@ Pagination Content Filter:
 
 // Global variables
 var studentsPerPage = 10;
-// var $totalStudents = $(".student-list").find(".student-item").size();
 var $totalStudents = $(".student-list").find(".student-item");
 var numofLinks = Math.ceil($totalStudents.length / studentsPerPage);
 var currentLink = 0;
@@ -44,7 +43,7 @@ $("ul li a:first").addClass("active");
 
 $("ul li a").click(function() {
   $("ul li a").removeClass("active");
-  $(this).addClass("active");
+  var $activePage = $(this).addClass("active");
   // $(".student-list");
 });
 
@@ -82,67 +81,150 @@ var $studentsPerPage = $(".student-item:lt(10)").show();
 
 var listCorrectStudents = parseInt([i]) + 1;
 
-for (var i = 1; i < 10; i++) {
-$("ul li:nth-child(" + listCorrectStudents + ") a").click( function(){
-  $totalStudents.hide();
-  var $studentsPerPage = $(".student-item:gt(" + parseInt([i]) * 10 + "):lt(10)").show();
-  console.log(parseInt([i]) + 1);
-  });
-}
+// for (var i = 1; i < 10; i++) {
+// $("ul li:nth-child(" + listCorrectStudents + ") a").click( function(){
+//   $totalStudents.hide();
+//   var $studentsPerPage = $(".student-item:gt(" + parseInt([i]) * 10 + "):lt(10)").show();
+//   console.log(parseInt([i]) + 1);
+//   });
+// }
+//
+// for (var j = 1; j <= numofLinks; j++) {
+//   console.log(parseInt([j]) * 10);
+//   $("ul li:nth-child(" + parseInt([j]) + ") a").click( function(){
+//     $totalStudents.hide();
+//     // $(".student-item:gt(11):lt(20)").show();
+//     $(".student-item:gt(" + parseInt([j]) * 10 + "):lt(10)").show();
+//   // });
+//   console.log(parseInt([j]) * 10);
+//   });
+// }
 // console.log(parseInt([i]) + 1);
 // for (var j = 0; j < 4; j++) {
 //   console.log(parseInt([j]) + 1);
 // }
 // console.log(parseInt([j]) + 1);
 
+// for (var j = 1; j <= numofLinks; j++)
+// var parseIntIndexJ = parseInt([j]);
+// $("ul li:nth-child(" + parseIntIndexJ + ") a").click( function(){
+//   $totalStudents.hide(":hidden");
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:lt(10):hidden").show();
+// });
 
-// $("ul li:nth-child(1) a").click( function(){
-//   $totalStudents.hide();
+// function go_to_page(page_num) {
+//   var showPerPage = parseInt(studentsPerPage.val());
+//   var startFrom = parseInt(page_num) * studentsPerPage;
+//   var end_on = startFrom + parseInt(page_num);
+//   $totalStudents.css("display", "none").slice(startFrom, end_on).css("display", "block");
+// }
+
+$("ul li:nth-child(1) a").click( function(){
+  $totalStudents.hide();
+  // $(".student-item:gt(11):lt(20)").show();
+  $(".student-item:lt(10)").show();
+});
+
+$("ul li:nth-child(2) a").click( function(){
+  $totalStudents.hide();
+  // $(".student-item:gt(11):lt(20)").show();
+  $(".student-item:gt(11):lt(10)").show();
+});
+
+$("ul li:nth-child(3) a").click( function(){
+  $totalStudents.hide();
+  // $(".student-item:gt(11):lt(20)").show();
+  $(".student-item:gt(21):lt(10)").show();
+});
+
+$("ul li:nth-child(4) a").click( function(){
+  $totalStudents.hide();
+  // $(".student-item:gt(11):lt(20)").show();
+  $(".student-item:gt(31):lt(10)").show();
+});
+
+$("ul li:nth-child(5) a").click( function(){
+  $totalStudents.hide();
+  // $(".student-item:gt(11):lt(20)").show();
+  $(".student-item:gt(41):lt(10)").show();
+});
+
+$("ul li:nth-child(6) a").click( function(){
+  $totalStudents.hide();
+  // $(".student-item:gt(11):lt(20)").show();
+  $(".student-item:gt(51):lt(10)").show();
+});
+
+
+
+// $("ul li a").click( function() {
+//   $totalStudents.nextAll(":lt(10)").show();
+//   var $itemsShownDefault = $(".student-list").find(".student-item:visible").hide();
 //   // $(".student-item:gt(11):lt(20)").show();
-//   $(".student-item:gt(11):lt(10)").show();
+//   $(".student-list").find(".student-item:hidden:not(:visible)").show();
 // });
-//
-// $("ul li:nth-child(2) a").click( function(){
+
+
+// http://web.enavu.com/tutorials/making-a-jquery-pagination-system/ code
+
+$totalStudents.hide();
+
+$totalStudents.slice(0, studentsPerPage).show();
+
+function previous() {
+   new_page = parseInt($activePage.val()) - 1;
+  if ($(".active").prev("li a").length==true) {
+    go_to_page(new_page);
+  }
+}
+
+function next() {
+   new_page = parseInt($activePage.val()) + 1;
+  if ($(".active").next("li a").length==true) {
+    go_to_page(new_page);
+  }
+}
+
+
+ startFrom = parseInt(numofLinks) * parseInt(studentsPerPage);
+
+ end_on = parseInt(startFrom) + parseInt(numofLinks);
+
+function go_to_page(page_num) {
+  var showPerPage = parseInt(studentsPerPage.val());
+  var startFrom = parseInt(page_num) * studentsPerPage;
+  var end_on = startFrom + parseInt(page_num);
+  $totalStudents.css("display", "none").slice(startFrom, end_on).css("display", "block");
+}
+
+
+
+// $("ul li a").click( function() {
+// for (var j = 1; j <= parseInt(numofLinks); j++) {
 //   $totalStudents.hide();
-//   // $(".student-item:gt(11):lt(20)").show();
-//   $(".student-item:gt(11):lt(10)").show();
+//   $totalStudents.slice(parseInt([j]), parseInt([j]) * 10).show();
+//   }
 // });
-//
-// $("ul li:nth-child(3) a").click( function(){
-//   $totalStudents.hide();
-//   // $(".student-item:gt(11):lt(20)").show();
-//   $(".student-item:gt(21):lt(10)").show();
-// });
-//
-// $("ul li:nth-child(4) a").click( function(){
-//   $totalStudents.hide();
-//   // $(".student-item:gt(11):lt(20)").show();
-//   $(".student-item:gt(31):lt(10)").show();
-// });
-//
-// $("ul li:nth-child(5) a").click( function(){
-//   $totalStudents.hide();
-//   // $(".student-item:gt(11):lt(20)").show();
-//   $(".student-item:gt(41):lt(10)").show();
-// });
-//
-// $("ul li:nth-child(6) a").click( function(){
-//   $totalStudents.hide();
-//   // $(".student-item:gt(11):lt(20)").show();
-//   $(".student-item:gt(51):lt(10)").show();
+// ends http://web.enavu.com/tutorials/making-a-jquery-pagination-system/ code
+
+
+
+// $("ul li a").click( function() {
+//   $(".student-list").find(".student-item:visible").replaceWith($(".student-item:lt(10)")).nextAll().show();
 // });
 
 
 
 // Search:
 
-var $inputText = $("input").text();
-console.log($inputText)
-
-console.log($("input").val());
-
-$("button").click( function() {
-  $totalStudents.hide();
-  var $filteredStudents = $(".student-item").filter(":contains(" + $inputText + ")").show(":gt(11):lt(10)");
-  console.log($filteredStudents.length);
-});
+// var $inputText = $("input").text();
+// console.log($inputText)
+//
+// console.log($("input").val());
+//
+// $("button").click( function() {
+//   $totalStudents.hide();
+//   var $filteredStudents = $(".student-item").filter(":contains(" + $inputText + ")").show(":gt(11):lt(10)");
+//   console.log($filteredStudents.length);
+// });
