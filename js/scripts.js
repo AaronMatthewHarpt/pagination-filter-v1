@@ -267,6 +267,7 @@ $("button").on("click", function() {
   } else {
 
   $($filteredstudentsShown).slice(0, studentsPerPage).show();
+  console.log($($filteredstudentsShown).slice(0, studentsPerPage).show().length);
 
   $("li a").on("click", function() {
   parseInt($(".active").html());
