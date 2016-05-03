@@ -45,13 +45,8 @@ $("ul li a").click(function() {
 });
 
 
-// Code that shows correct student for correct page
+// Code that shows correct students for correct link:
 
-currentLink += 1;
-
-
-
-var listCorrectStudents = parseInt([i]) + 1;
 
 // Holds student index
 var studentCount = 1;
@@ -87,33 +82,56 @@ for (var k = startId; k < endId; k++) {
 // Search:
 
 $("button").on("click", function() {
+  // stors the input's value in the $studentSearch variable
   var $studentSearch = $("input").val();
+  // logs the results of the indexOf() method from the $studentSearch into the console
   console.log(".student-item".indexOf($studentSearch));
+  // hides all students
   $totalStudents.hide();
+  // gets the parent (".student-list") of the .student-details that contains the $studentSearch
   var $filteredstudentsShown = $(".student-details:contains(" + $studentSearch + ")").parent();
 
+  // checks if the $filteredstudentsShown text equals a black string
   if ($filteredstudentsShown.text() === "") {
+    // if it does change the .student-list text to "Sorry, there are no students matching your search."
     $(".student-list").text("Sorry, there are no students matching your search.");
+    // else
   } else {
+    // show the first ten students that match
+  $filteredstudentsShown.slice(0, studentsPerPage).show();
 
-  $($filteredstudentsShown).slice(0, studentsPerPage).show();
-  console.log($($filteredstudentsShown).slice(0, studentsPerPage).show().length);
-
+// removes all ids from elements with the student-item class
+  $(".student-item").removeAttr("id");
+  // when an anchor inside a list item is clicked
   $("li a").on("click", function() {
+    // goes through each list item and adds an id if necessary
+    $filteredstudentsShown.each(function(index){
+      if ($(this).attr("id") !== "!display") {
+        // adds id with value of "show-index-(value of studentCount)"
+        $(this).attr("id", "show-index-"+(studentCount));
+        // adds one to studentCount
+        studentCount++;
+      }
+    });
+
+  // Search pagination
+    // parsing .active's html into an integer
   parseInt($(".active").html());
 
   var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
   var endId = startId + studentsPerPage - 1;
-
+// hides all students
   $totalStudents.hide();
+  // shows students from startId to endId
   $totalStudents.slice(startId, endId).show();
-
+// shows elements with id "show-index-(k)"
   for (var k = startId; k < endId; k++) {
     $("#show-index-" + k).show();
     }
   });
 }
-
+// removes active class from all anchor tags
   $("a").removeClass("active");
+  // adds active class to first anchor inside a ul and li
   $("ul li a:first").addClass("active");
 });
