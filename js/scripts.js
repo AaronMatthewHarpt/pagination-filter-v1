@@ -76,7 +76,7 @@ var endId = startId + studentsPerPage - 1;
 $totalStudents.hide();
 $totalStudents.slice(startId, endId).show();
 
-
+// show elements with id 'k'
 for (var k = startId; k < endId; k++) {
   $("#show-index-" + k).show();
   }
