@@ -256,11 +256,11 @@ for (var k = startId; k < endId; k++) {
 
 
 $("button").on("click", function() {
-  $("li").removeClass("active");
   var $studentSearch = $("input").val();
   console.log($studentSearch.indexOf(".student-item"));
   $totalStudents.hide();
   $(".student-details:contains(" + $studentSearch + ")").parent().show();
+  $("a").removeClass("active");
 });
 
 
