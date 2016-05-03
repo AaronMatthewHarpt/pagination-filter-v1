@@ -62,22 +62,6 @@ currentLink += 1;
 // adding animations
 
 
-// var $studentsPerPage = $(".student-item:lt(10)").show();
-
-// $("ul li a:not(:first)").click(function() {
-//   $("body").css("display", "none").fadeIn(1000);
-//   $totalStudents.hide();
-//   event.preventDefault();
-//   newLocation = "filter-example.html";
-//   $("body").fadeOut(1000, newpage);
-//   $(".student-item").nextAll(":lt(10)").show();
-// });
-//
-// function newpage() {
-//   window.location = newLocation;
-// }
-
-
 
 var listCorrectStudents = parseInt([i]) + 1;
 
