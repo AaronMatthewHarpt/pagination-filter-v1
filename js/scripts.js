@@ -116,9 +116,10 @@ $("button").on("click", function() {
         studentCount++;
       }
     });
-    var searchNumOfLinks = Math.ceil($filteredstudentsShown.length / studentsPerPage);
-    for (var h = 1; h <= searchNumOfLinks; h++) {
-      $(".pagination ul").append('<li> <a href="#">' + [h] + '</a> </li>');
+    numofLinks = Math.ceil($filteredstudentsShown.length / studentsPerPage);
+    $(".pagination ul li a").hide();
+    for ( i = 1; i <= numofLinks; i++) {
+      $(".pagination ul").append('<li> <a href="#">' + [i] + '</a> </li>');
       }
 
 
