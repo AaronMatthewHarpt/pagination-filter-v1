@@ -99,6 +99,7 @@ $("button").on("click", function() {
   } else {
 
   // Search pagination
+
     // show the first ten students that match
   $filteredstudentsShown.slice(0, studentsPerPage).show();
 
@@ -115,6 +116,11 @@ $("button").on("click", function() {
         studentCount++;
       }
     });
+    var searchNumOfLinks = Math.ceil($filteredstudentsShown.length / studentsPerPage);
+    for (var h = 1; h <= searchNumOfLinks; h++) {
+      $(".pagination ul").append('<li> <a href="#">' + [h] + '</a> </li>');
+      }
+
 
     // parsing .active's html into an integer
   parseInt($(".active").html());
