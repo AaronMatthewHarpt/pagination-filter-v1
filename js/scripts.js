@@ -118,6 +118,8 @@ $("button").on("click", function() {
     });
     numofLinks = Math.ceil($filteredstudentsShown.length / studentsPerPage);
     $(".pagination ul li a").hide();
+    // :first anchor is not displayed so this line of code is not working
+    $("ul li a:first").addClass("active");
     for ( i = 1; i <= numofLinks; i++) {
       $(".pagination ul").append('<li> <a href="#">' + [i] + '</a> </li>');
       }
@@ -133,7 +135,7 @@ $("button").on("click", function() {
   // shows students from startId to endId
   $filteredstudentsShown.slice(searchStartId, searchEndId).show();
 // shows elements with id "show-index-(k)"
-  for (var k = startId; k < endId; k++) {
+  for (var k = searchStartId; k < searchEndId; k++) {
     $("#show-index-" + k).show();
     }
   });
