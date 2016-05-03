@@ -1,5 +1,5 @@
 // Current issues
-  // Paginated search is not working a first link
+  // Paginated search is not working after first link
 
 
 /*
@@ -97,6 +97,8 @@ $("button").on("click", function() {
     $(".student-list").text("Sorry, there are no students matching your search.");
     // else
   } else {
+
+  // Search pagination
     // show the first ten students that match
   $filteredstudentsShown.slice(0, studentsPerPage).show();
 
@@ -114,7 +116,6 @@ $("button").on("click", function() {
       }
     });
 
-  // Search pagination
     // parsing .active's html into an integer
   parseInt($(".active").html());
 
