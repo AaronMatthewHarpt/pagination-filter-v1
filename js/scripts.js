@@ -106,7 +106,7 @@ $("button").on("click", function() {
 
   studentCount = 1;
 // removes all ids from elements with the student-item class
-  $(".student-item").removeAttr("id");
+  $totalStudents.removeAttr("id");
   // when an anchor inside a list item is clicked
   $("li a").on("click", function() {
     // goes through each list item and adds an id if necessary
