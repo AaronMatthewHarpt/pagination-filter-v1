@@ -258,9 +258,13 @@ for (var k = startId; k < endId; k++) {
 
 $("button").on("click", function() {
   var $studentSearch = $("input").val();
-  console.log($studentSearch.indexOf(".student-item"));
+  console.log(".student-item".indexOf($studentSearch));
   $totalStudents.hide();
   var $filteredstudentsShown = $(".student-details:contains(" + $studentSearch + ")").parent();
+
+  if ($filteredstudentsShown.text() === "") {
+    $(".student-list").text("Sorry, there are no students matching your search.");
+  } else {
 
   $($filteredstudentsShown).slice(0, studentsPerPage).show();
 
@@ -275,8 +279,9 @@ $("button").on("click", function() {
 
   for (var k = startId; k < endId; k++) {
     $("#show-index-" + k).fadeIn();
-  }
-});
+    }
+  });
+}
 
   $("a").removeClass("active");
   $("ul li a:first").addClass("active");
