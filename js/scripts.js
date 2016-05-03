@@ -103,6 +103,8 @@ $("button").on("click", function() {
     // show the first ten students that match
   $filteredstudentsShown.slice(0, studentsPerPage).show();
 
+
+  studentCount = 1;
 // removes all ids from elements with the student-item class
   $(".student-item").removeAttr("id");
   // when an anchor inside a list item is clicked
