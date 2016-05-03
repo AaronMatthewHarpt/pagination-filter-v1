@@ -1,5 +1,6 @@
 // Current issues
-  // Paginated search is not working after first link
+  // Paginated search is not working
+  // Does my code commenting explain what the code is doing?
 
 
 /*
