@@ -9,12 +9,6 @@ var numofLinks = Math.ceil($totalStudents.length / studentsPerPage);
 var currentLink = 0;
 
 
-// console.logs for testing
-console.log(numofLinks);
-
-// console.log(totalStudents);
-
-
 // appends search to page
 $(".page-header").append('<div class="student-search"><input placeholder="Search for students..."> <button>Search</button></div>');
 
