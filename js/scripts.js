@@ -16,7 +16,7 @@ console.log(numofLinks);
 
 
 // appends search to page
-$(".page-header").append('<div class="student-search"><input value="input" placeholder="Search for students..."> <button>Search</button></div>');
+$(".page-header").append('<div class="student-search"><input placeholder="Search for students..."> <button>Search</button></div>');
 
 // appending the pagination div and child ul
 $(".page").append('<div class="pagination"><ul></ul></div>');
@@ -62,7 +62,7 @@ currentLink += 1;
 // adding animations
 
 
-var $studentsPerPage = $(".student-item:lt(10)").show();
+// var $studentsPerPage = $(".student-item:lt(10)").show();
 
 // $("ul li a:not(:first)").click(function() {
 //   $("body").css("display", "none").fadeIn(1000);
@@ -120,41 +120,41 @@ var listCorrectStudents = parseInt([i]) + 1;
 //   $totalStudents.css("display", "none").slice(startFrom, end_on).css("display", "block");
 // }
 
-$("ul li:nth-child(1) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:lt(10)").show();
-});
-
-$("ul li:nth-child(2) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(11):lt(10)").show();
-});
-
-$("ul li:nth-child(3) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(21):lt(10)").show();
-});
-
-$("ul li:nth-child(4) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(31):lt(10)").show();
-});
-
-$("ul li:nth-child(5) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(41):lt(10)").show();
-});
-
-$("ul li:nth-child(6) a").click( function(){
-  $totalStudents.hide();
-  // $(".student-item:gt(11):lt(20)").show();
-  $(".student-item:gt(51):lt(10)").show();
-});
+// $("ul li:nth-child(1) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:lt(10)").show();
+// });
+//
+// $("ul li:nth-child(2) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(11):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(3) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(21):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(4) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(31):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(5) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(41):lt(10)").show();
+// });
+//
+// $("ul li:nth-child(6) a").click( function(){
+//   $totalStudents.hide();
+//   // $(".student-item:gt(11):lt(20)").show();
+//   $(".student-item:gt(51):lt(10)").show();
+// });
 
 
 
@@ -168,35 +168,35 @@ $("ul li:nth-child(6) a").click( function(){
 
 // http://web.enavu.com/tutorials/making-a-jquery-pagination-system/ code
 
-$totalStudents.hide();
-
-$totalStudents.slice(0, studentsPerPage).show();
-
-function previous() {
-   new_page = parseInt($activePage.val()) - 1;
-  if ($(".active").prev("li a").length==true) {
-    go_to_page(new_page);
-  }
-}
-
-function next() {
-   new_page = parseInt($activePage.val()) + 1;
-  if ($(".active").next("li a").length==true) {
-    go_to_page(new_page);
-  }
-}
-
-
- startFrom = parseInt(numofLinks) * parseInt(studentsPerPage);
-
- end_on = parseInt(startFrom) + parseInt(numofLinks);
-
-function go_to_page(page_num) {
-  var showPerPage = parseInt(studentsPerPage.val());
-  var startFrom = parseInt(page_num) * studentsPerPage;
-  var end_on = startFrom + parseInt(page_num);
-  $totalStudents.css("display", "none").slice(startFrom, end_on).css("display", "block");
-}
+// $totalStudents.hide();
+//
+// $totalStudents.slice(0, studentsPerPage).show();
+//
+// function previous() {
+//    new_page = parseInt($activePage.val()) - 1;
+//   if ($(".active").prev("li a").length==true) {
+//     go_to_page(new_page);
+//   }
+// }
+//
+// function next() {
+//    new_page = parseInt($activePage.val()) + 1;
+//   if ($(".active").next("li a").length==true) {
+//     go_to_page(new_page);
+//   }
+// }
+//
+//
+//  startFrom = parseInt(numofLinks) * parseInt(studentsPerPage);
+//
+//  end_on = parseInt(startFrom) + parseInt(numofLinks);
+//
+// function go_to_page(page_num) {
+//   var showPerPage = parseInt(studentsPerPage.val());
+//   var startFrom = parseInt(page_num) * studentsPerPage;
+//   var end_on = startFrom + parseInt(page_num);
+//   $totalStudents.css("display", "none").slice(startFrom, end_on).css("display", "block");
+// }
 
 
 
@@ -216,7 +216,55 @@ function go_to_page(page_num) {
 
 
 
+var studentCount = 1;
+$(".student-list > li").each(function(index){
+  if ($(this).attr("id") !== "!display") {
+    $(this).attr("id", "show-index-"+(studentCount));
+    studentCount++;
+  }
+});
+
+$("li a").on("click", function(){
+console.log(parseInt($(".active").html()));
+
+
+parseInt($(".active").html());
+var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
+var endId = startId + studentsPerPage - 1;
+
+$totalStudents.hide();
+$totalStudents.slice(startId, endId).show();
+
+
+for (var k = startId; k < endId; k++) {
+  $("#show-index-" + k).fadeIn();
+  }
+});
+
+
+
 // Search:
+
+// $("button").on("click", function() {
+  // var $studentNames = $("h3").text();
+  // $("input").filter(function() {
+  //   // $totalStudents.hide()
+  //   var $matchingStudents = $("input:contains(" + $studentNames + ")");
+  //   $(".student-item").text($matchingStudents);
+  // });
+// })
+
+
+$("button").on("click", function() {
+  $("li").removeClass("active");
+  var $studentSearch = $("input").val();
+  console.log($studentSearch.indexOf(".student-item"));
+  $totalStudents.hide();
+  $(".student-details:contains(" + $studentSearch + ")").parent().show();
+});
+
+
+
 
 // var $inputText = $("input").text();
 // console.log($inputText)
