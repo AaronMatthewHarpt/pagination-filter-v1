@@ -51,7 +51,7 @@ $("ul li a").click(function() {
 // Holds student index
 var studentCount = 1;
 
-// goes through each list item and adds id if necessary
+// goes through each list item and adds id if you want is displayed
 $(".student-list > li").each(function(index){
   if ($(this).attr("id") !== "!display") {
     $(this).attr("id", "show-index-"+(studentCount));
