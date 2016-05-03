@@ -91,7 +91,7 @@ $("button").on("click", function() {
   // gets the parent (".student-list") of the .student-details that contains the $studentSearch
   var $filteredstudentsShown = $(".student-details:contains(" + $studentSearch + ")").parent();
 
-  // checks if the $filteredstudentsShown text equals a black string
+  // checks if the $filteredstudentsShown text equals a blank string
   if ($filteredstudentsShown.text() === "") {
     // if it does change the .student-list text to "Sorry, there are no students matching your search."
     $(".student-list").text("Sorry, there are no students matching your search.");
