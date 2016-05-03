@@ -157,65 +157,6 @@ var listCorrectStudents = parseInt([i]) + 1;
 // });
 
 
-
-// $("ul li a").click( function() {
-//   $totalStudents.nextAll(":lt(10)").show();
-//   var $itemsShownDefault = $(".student-list").find(".student-item:visible").hide();
-//   // $(".student-item:gt(11):lt(20)").show();
-//   $(".student-list").find(".student-item:hidden:not(:visible)").show();
-// });
-
-
-// http://web.enavu.com/tutorials/making-a-jquery-pagination-system/ code
-
-// $totalStudents.hide();
-//
-// $totalStudents.slice(0, studentsPerPage).show();
-//
-// function previous() {
-//    new_page = parseInt($activePage.val()) - 1;
-//   if ($(".active").prev("li a").length==true) {
-//     go_to_page(new_page);
-//   }
-// }
-//
-// function next() {
-//    new_page = parseInt($activePage.val()) + 1;
-//   if ($(".active").next("li a").length==true) {
-//     go_to_page(new_page);
-//   }
-// }
-//
-//
-//  startFrom = parseInt(numofLinks) * parseInt(studentsPerPage);
-//
-//  end_on = parseInt(startFrom) + parseInt(numofLinks);
-//
-// function go_to_page(page_num) {
-//   var showPerPage = parseInt(studentsPerPage.val());
-//   var startFrom = parseInt(page_num) * studentsPerPage;
-//   var end_on = startFrom + parseInt(page_num);
-//   $totalStudents.css("display", "none").slice(startFrom, end_on).css("display", "block");
-// }
-
-
-
-// $("ul li a").click( function() {
-// for (var j = 1; j <= parseInt(numofLinks); j++) {
-//   $totalStudents.hide();
-//   $totalStudents.slice(parseInt([j]), parseInt([j]) * 10).show();
-//   }
-// });
-// ends http://web.enavu.com/tutorials/making-a-jquery-pagination-system/ code
-
-
-
-// $("ul li a").click( function() {
-//   $(".student-list").find(".student-item:visible").replaceWith($(".student-item:lt(10)")).nextAll().show();
-// });
-
-
-
 var studentCount = 1;
 $(".student-list > li").each(function(index){
   if ($(this).attr("id") !== "!display") {
@@ -286,36 +227,4 @@ $("button").on("click", function() {
 
   $("a").removeClass("active");
   $("ul li a:first").addClass("active");
-
-  // $("li a").on("click", function() {
-  // parseInt($(".active").html());
-  // var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
-  // var endId = startId + studentsPerPage - 1;
-  //
-  // $totalStudents.hide();
-  // $totalStudents.slice(startId, endId).show();
-  //
-  //
-  // for (var k = startId; k < endId; k++) {
-  //   $("#show-index-" + k).fadeIn();
-  //   }
-  // });
-
-
-
-
 });
-
-
-
-
-// var $inputText = $("input").text();
-// console.log($inputText)
-//
-// console.log($("input").val());
-//
-// $("button").click( function() {
-//   $totalStudents.hide();
-//   var $filteredStudents = $(".student-item").filter(":contains(" + $inputText + ")").show(":gt(11):lt(10)");
-//   console.log($filteredStudents.length);
-// });
