@@ -119,12 +119,12 @@ $("button").on("click", function() {
     // parsing .active's html into an integer
   parseInt($(".active").html());
 
-  var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
-  var endId = startId + studentsPerPage - 1;
+  var searchStartId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage;
+  var searchEndId = searchStartId + studentsPerPage;
 // hides all students
   $totalStudents.hide();
   // shows students from startId to endId
-  $totalStudents.slice(startId, endId).show();
+  $filteredstudentsShown.slice(searchStartId, searchEndId).show();
 // shows elements with id "show-index-(k)"
   for (var k = startId; k < endId; k++) {
     $("#show-index-" + k).show();
