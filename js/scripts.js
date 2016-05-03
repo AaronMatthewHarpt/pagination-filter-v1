@@ -224,6 +224,7 @@ $(".student-list > li").each(function(index){
   }
 });
 
+
 $("li a").on("click", function(){
 console.log(parseInt($(".active").html()));
 
@@ -259,11 +260,40 @@ $("button").on("click", function() {
   var $studentSearch = $("input").val();
   console.log($studentSearch.indexOf(".student-item"));
   $totalStudents.hide();
-  $(".student-details:contains(" + $studentSearch + ")").parent().show();
+  var $filteredstudentsShown = $(".student-details:contains(" + $studentSearch + ")").parent();
+
+  $($filteredstudentsShown).slice(0, studentsPerPage).show();
+
+  $("li a").on("click", function() {
+  parseInt($(".active").html());
+
+  var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
+  var endId = startId + studentsPerPage - 1;
+
+  $totalStudents.hide();
+  $totalStudents.slice(startId, endId).show();
+
+  for (var k = startId; k < endId; k++) {
+    $("#show-index-" + k).fadeIn();
+  }
+});
+
   $("a").removeClass("active");
   $("ul li a:first").addClass("active");
 
-
+  // $("li a").on("click", function() {
+  // parseInt($(".active").html());
+  // var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
+  // var endId = startId + studentsPerPage - 1;
+  //
+  // $totalStudents.hide();
+  // $totalStudents.slice(startId, endId).show();
+  //
+  //
+  // for (var k = startId; k < endId; k++) {
+  //   $("#show-index-" + k).fadeIn();
+  //   }
+  // });
 
 
 
