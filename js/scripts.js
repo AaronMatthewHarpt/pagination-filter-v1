@@ -1,3 +1,7 @@
+// Current issues
+  // Paginated search is not working a first link
+
+
 /*
 Pagination Content Filter:
 */
@@ -38,29 +42,21 @@ $("ul li a:first").addClass("active");
 $("ul li a").click(function() {
   $("ul li a").removeClass("active");
   var $activePage = $(this).addClass("active");
-  // $(".student-list");
 });
 
 
 // Code that shows correct student for correct page
 
-
-// $("ul li a").click( function(){
-//   $totalStudents.hide();
-//   document.write($(".student-item:gt("+ [i] + "):lt(10)").show());
-// });
-
 currentLink += 1;
-
-
-// adding animations
 
 
 
 var listCorrectStudents = parseInt([i]) + 1;
 
-
+// Holds student index
 var studentCount = 1;
+
+// goes through each list item and adds id if necessary
 $(".student-list > li").each(function(index){
   if ($(this).attr("id") !== "!display") {
     $(this).attr("id", "show-index-"+(studentCount));
@@ -68,37 +64,27 @@ $(".student-list > li").each(function(index){
   }
 });
 
-
+// shows correct students when an anchor is clicked
 $("li a").on("click", function(){
-console.log(parseInt($(".active").html()));
 
-
+// parsing the active class's html into an integer
 parseInt($(".active").html());
 var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
 var endId = startId + studentsPerPage - 1;
+
 
 $totalStudents.hide();
 $totalStudents.slice(startId, endId).show();
 
 
 for (var k = startId; k < endId; k++) {
-  $("#show-index-" + k).fadeIn();
+  $("#show-index-" + k).show();
   }
 });
 
 
 
 // Search:
-
-// $("button").on("click", function() {
-  // var $studentNames = $("h3").text();
-  // $("input").filter(function() {
-  //   // $totalStudents.hide()
-  //   var $matchingStudents = $("input:contains(" + $studentNames + ")");
-  //   $(".student-item").text($matchingStudents);
-  // });
-// })
-
 
 $("button").on("click", function() {
   var $studentSearch = $("input").val();
@@ -123,7 +109,7 @@ $("button").on("click", function() {
   $totalStudents.slice(startId, endId).show();
 
   for (var k = startId; k < endId; k++) {
-    $("#show-index-" + k).fadeIn();
+    $("#show-index-" + k).show();
     }
   });
 }
