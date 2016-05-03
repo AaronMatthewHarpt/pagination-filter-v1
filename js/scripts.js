@@ -261,6 +261,13 @@ $("button").on("click", function() {
   $totalStudents.hide();
   $(".student-details:contains(" + $studentSearch + ")").parent().show();
   $("a").removeClass("active");
+  $("ul li a:first").addClass("active");
+
+
+
+
+
+
 });
 
 
