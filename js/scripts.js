@@ -103,14 +103,16 @@ $("button").on("click", function() {
     // show the first ten students that match
   $filteredstudentsShown.slice(0, studentsPerPage).show();
 
-
+// brings studentCount for index back to one
   studentCount = 1;
+
 // removes all ids from elements with the student-item class
   $totalStudents.removeAttr("id");
   // when an anchor inside a list item is clicked
   $("li a").on("click", function() {
     // goes through each list item and adds an id if necessary
     $filteredstudentsShown.each(function(index){
+      // if the anchor clicked does not have an id, do not display it
       if ($(this).attr("id") !== "!display") {
         // adds id with value of "show-index-(value of studentCount)"
         $(this).attr("id", "show-index-"+(studentCount));
@@ -119,12 +121,12 @@ $("button").on("click", function() {
       }
     });
     numofLinks = Math.ceil($filteredstudentsShown.length / studentsPerPage);
-    $(".pagination ul li a").hide();
+    // $(".pagination ul li a").hide();
     // :first anchor is not displayed so this line of code is not working
-    $("ul li a:first").addClass("active");
-    for ( i = 1; i <= numofLinks; i++) {
-      $(".pagination ul").append('<li> <a href="#">' + [i] + '</a> </li>');
-      }
+    // $("ul li a:first").addClass("active");
+    // for (var h = 1; h <= numofLinks; h++) {
+    //   $(".pagination ul").append('<li> <a href="#">' + [h] + '</a> </li>');
+    //   }
 
 
     // parsing .active's html into an integer
