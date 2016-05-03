@@ -83,7 +83,7 @@ for (var k = startId; k < endId; k++) {
 
 $("button").on("click", function() {
   // stors the input's value in the $studentSearch variable
-  var $studentSearch = $("input").val();
+  var $studentSearch = $("input").val().toLowerCase();
   // logs the results of the indexOf() method from the $studentSearch into the console
   console.log(".student-item".indexOf($studentSearch));
   // hides all students
