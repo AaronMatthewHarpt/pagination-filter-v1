@@ -139,6 +139,6 @@ $("button").on("click",function() {
       $("#show-index-" + k).show();
       }
 
-})
+});
 }
-})
+});
