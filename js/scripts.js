@@ -121,7 +121,7 @@ $("button").on("click",function() {
     })
     // removes active class from all anchor tags
       $("a").removeClass("active");
-      // adds active class to the page that user just cliked on
+      // adds active class to the page that user just clicked on
       $(this).addClass("active");
       // parsing .active's html into an integer
     parseInt($(".active").html());
