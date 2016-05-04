@@ -107,8 +107,6 @@ $("button").on("click",function() {
   for (var h = 1; h <= numofLinks; h++) {
     $(".pagination ul").append('<li> <a href="#">' + [h] + '</a> </li>');
     }
-    //:first anchor is not displayed so this line of code is not working
-    $(".pagination ul li a:first").addClass("active");
   // when an anchor inside a list item is clicked
   $("li a").on("click", function() {
     // goes through each list item and adds an id if necessary
