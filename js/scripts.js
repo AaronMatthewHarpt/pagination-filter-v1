@@ -59,30 +59,22 @@ $(".student-list > li").each(function(index){
     studentCount++;
   }
 });
-
 // shows correct students when an anchor is clicked
 $("li a").on("click", function(){
 
 // parsing the active class's html into an integer
 parseInt($(".active").html());
 var startId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage + 1;
-var endId = startId + studentsPerPage - 1;
-
+var endId = startId + studentsPerPage;
 
 $totalStudents.hide();
-$totalStudents.slice(startId, endId).show();
-
 // show elements with id 'k'
 for (var k = startId; k < endId; k++) {
   $("#show-index-" + k).show();
   }
 });
-
-
-
 // Search:
-
-$("button").on("click", function() {
+$("button").on("click",function() {
   // stores the input's value in the $studentSearch variable
   var $studentSearch = $("input").val().toLowerCase();
   // logs the results of the indexOf() method from the $studentSearch into the console
@@ -109,6 +101,14 @@ $("button").on("click", function() {
 
 // removes all ids from elements with the student-item class
   $totalStudents.removeAttr("id");
+  $(".pagination ul li").remove();
+  numofLinks = Math.ceil($filteredstudentsShown.length / studentsPerPage);
+
+  for (var h = 1; h <= numofLinks; h++) {
+    $(".pagination ul").append('<li> <a href="#">' + [h] + '</a> </li>');
+    }
+    //:first anchor is not displayed so this line of code is not working
+    $(".pagination ul li a:first").addClass("active");
   // when an anchor inside a list item is clicked
   $("li a").on("click", function() {
     // goes through each list item and adds an id if necessary
@@ -120,33 +120,25 @@ $("button").on("click", function() {
         // adds one to studentCount
         studentCount++;
       }
-    });
-    numofLinks = Math.ceil($filteredstudentsShown.length / studentsPerPage);
-    // $(".pagination ul li a").hide();
-    // :first anchor is not displayed so this line of code is not working
-    // $("ul li a:first").addClass("active");
-    // for (var h = 1; h <= numofLinks; h++) {
-    //   $(".pagination ul").append('<li> <a href="#">' + [h] + '</a> </li>');
-    //   }
+    })
+    // removes active class from all anchor tags
+      $("a").removeClass("active");
+      // adds active class to the page that user just cliked on
+      $(this).addClass("active");
+      // parsing .active's html into an integer
+    parseInt($(".active").html());
 
+    var searchStartId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage;
+    var searchEndId = searchStartId + studentsPerPage;
+  // hides all students
+    $totalStudents.hide();
+    // shows students from startId to endId
+    $filteredstudentsShown.slice(searchStartId, searchEndId).show();
+  // shows elements with id "show-index-(k)"
+    for (var k = searchStartId; k < searchEndId; k++) {
+      $("#show-index-" + k).show();
+      }
 
-    // parsing .active's html into an integer
-  parseInt($(".active").html());
-
-  var searchStartId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage;
-  var searchEndId = searchStartId + studentsPerPage;
-// hides all students
-  $totalStudents.hide();
-  // shows students from startId to endId
-  $filteredstudentsShown.slice(searchStartId, searchEndId).show();
-// shows elements with id "show-index-(k)"
-  for (var k = searchStartId; k < searchEndId; k++) {
-    $("#show-index-" + k).show();
-    }
-  });
+})
 }
-// removes active class from all anchor tags
-  $("a").removeClass("active");
-  // adds active class to first anchor inside a ul and li
-  $("ul li a:first").addClass("active");
-});
+})
