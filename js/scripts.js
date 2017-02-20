@@ -9,6 +9,7 @@ Pagination Content Filter:
 
 // Global variables
 var studentsPerPage = 10;
+// all students
 var $totalStudents = $(".student-list").find(".student-item");
 var numofLinks = Math.ceil($totalStudents.length / studentsPerPage);
 var currentLink = 0;
@@ -52,15 +53,15 @@ $("ul li a").click(function() {
 // Holds student index
 var studentCount = 1;
 
-// goes through each list item and adds id if you want is displayed
-$(".student-list > li").each(function(index){
+// goes through each list item and adds id if you want it displayed
+$(".student-list > li").each(function(index) {
   if ($(this).attr("id") !== "!display") {
-    $(this).attr("id", "show-index-"+(studentCount));
+    $(this).attr("id", "show-index-"+ (studentCount));
     studentCount++;
   }
 });
 // shows correct students when an anchor is clicked
-$("li a").on("click", function(){
+$("li a").on("click", function() {
 
 // parsing the active class's html into an integer
 parseInt($(".active").html());
@@ -74,7 +75,7 @@ for (var k = startId; k < endId; k++) {
   }
 });
 // Search:
-$("button").on("click",function() {
+var search = function() {
   // stores the input's value in the $studentSearch variable
   var $studentSearch = $("input").val().toLowerCase();
   // logs the results of the indexOf() method from the $studentSearch into the console
@@ -86,11 +87,13 @@ $("button").on("click",function() {
 
   // checks if the $filteredstudentsShown text equals a blank string
   if ($filteredstudentsShown.text() === "") {
+    $(".pagination ul li").remove();
     // if it does change the .student-list text to "Sorry, there are no students matching your search."
-    $(".student-list").text("Sorry, there are no students matching your search.");
+    $(".student-list .student-item").hide();
+    $(".student-list").append("<p>Sorry, there are no students matching your search.</p>");
     // else
   } else {
-
+    $(".student-list p").remove();
   // Search pagination
 
     // show the first ten students that match
@@ -107,12 +110,13 @@ $("button").on("click",function() {
   for (var h = 1; h <= numofLinks; h++) {
     $(".pagination ul").append('<li> <a href="#">' + [h] + '</a> </li>');
     }
+
     //:first anchor is not displayed so this line of code is not working
     $(".pagination ul li a:first").addClass("active");
   // when an anchor inside a list item is clicked
   $("li a").on("click", function() {
     // goes through each list item and adds an id if necessary
-    $filteredstudentsShown.each(function(index){
+    $filteredstudentsShown.each(function(index) {
       // if the anchor clicked does not have an id, do not display it
       if ($(this).attr("id") !== "!display") {
         // adds id with value of "show-index-(value of studentCount)"
@@ -120,14 +124,16 @@ $("button").on("click",function() {
         // adds one to studentCount
         studentCount++;
       }
-    })
+
+    });
+
     // removes active class from all anchor tags
-      $("a").removeClass("active");
-      // adds active class to the page that user just clicked on
-      $(this).addClass("active");
+    $("a").removeClass("active");
+    // adds active class to the page that use just clicked on
+    $(this).addClass("active");
+
       // parsing .active's html into an integer
     parseInt($(".active").html());
-
     var searchStartId = parseInt($(".active").html()) * studentsPerPage - studentsPerPage;
     var searchEndId = searchStartId + studentsPerPage;
   // hides all students
@@ -135,10 +141,20 @@ $("button").on("click",function() {
     // shows students from startId to endId
     $filteredstudentsShown.slice(searchStartId, searchEndId).show();
   // shows elements with id "show-index-(k)"
-    for (var k = searchStartId; k < searchEndId; k++) {
+
+    for (var k = searchStartId + 1; k < searchEndId; k++) {
       $("#show-index-" + k).show();
       }
 
 });
 }
+};
+
+
+$("button").click(function() {
+  search();
+});
+
+$("input").keyup(function() {
+  search();
 });
