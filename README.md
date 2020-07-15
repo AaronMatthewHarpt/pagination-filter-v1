@@ -1,5 +1,5 @@
 # Pagination Filter
-#### Second Project in TeamTreehouse Full Stack JavaScript TechDegree
+#### Project With Online Learning Site Team Treehouse
 
 ## Technologies Used:
 1. HTML
