@@ -1,5 +1,4 @@
-# Pagination Filter
-#### Project With Online Learning Site Team Treehouse
+# Pagination Filter - Project with online learning site TeamTreehouse
 
 ## Technologies Used:
 1. HTML
